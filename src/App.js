@@ -1,13 +1,26 @@
 import React from 'react';
 
-import {NavigationCOntainer} from '@react-navigation/native';
+import {NavigationContainer} from '@react-navigation/native';
 
 import {createStackNavigator} from '@react-navigation/stack';
 
-import RegisterScreen from './screens/RegistrationScreen';
+import AuthStackNavigator from './navigators/AuthStackNavigator';
 
 const RootStack = createStackNavigator();
 
-const App = ({params}) => <RegisterScreen />;
+const App = ({params}) => {
+  return (
+    <NavigationContainer>
+      <RootStack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}>
+        <RootStack.Screen
+          name="AuthStack"
+          component={AuthStackNavigator}></RootStack.Screen>
+      </RootStack.Navigator>
+    </NavigationContainer>
+  );
+};
 
 export default App;

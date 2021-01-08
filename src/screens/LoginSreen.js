@@ -7,7 +7,7 @@ import FilledButton from '../components/FilledButton';
 import TextButton from '../components/TextButton';
 import ErrorText from '../components/ErrorText';
 
-const LoginScreen = ({params}) => (
+const LoginScreen = ({navigation}) => (
   <View style={styles.container}>
     <Header style={styles.title}>Login</Header>
     <ErrorText error={''} />
@@ -17,7 +17,13 @@ const LoginScreen = ({params}) => (
       keyboardType="email-address"
     />
     <Input style={styles.input} placeholder="Password" secureTextEntry />
-    <FilledButton title="Login" style={styles.loginButton} onPress={() => {}} />
+    <FilledButton
+      title="Login"
+      style={styles.loginButton}
+      onPress={() => {
+        navigation.navigate('Registration');
+      }}
+    />
     <TextButton title="Have u an account ? create one" onPress={() => {}} />
   </View>
 );

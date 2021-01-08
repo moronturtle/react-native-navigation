@@ -5,10 +5,18 @@ import Header from '../components/Header';
 import Input from '../components/Input';
 import FilledButton from '../components/FilledButton';
 import ErrorText from '../components/ErrorText';
+import IconButton from '../components/IconButton';
 
-const RegistrationScreen = ({params}) => (
+const RegistrationScreen = ({navigation}) => (
   <View style={styles.container}>
     <Header style={styles.title}>Registration</Header>
+    <IconButton
+      style={styles.closeIcon}
+      name="close-circle-outline"
+      onPress={() => {
+        navigation.pop();
+      }}
+    />
     <ErrorText error={''} />
     <Input
       style={styles.input}
@@ -41,5 +49,10 @@ const styles = StyleSheet.create({
   },
   loginButton: {
     marginVertical: 32,
+  },
+  closeIcon: {
+    position: 'absolute',
+    top: 60,
+    right: 16,
   },
 });
